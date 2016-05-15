@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once('../includes/DbConnection.php');
+    if(isset($_SESSION['type'])&&$_SESSION['type']===2){
+    }else{
+        header("Location:../index.php");
+        die();
+    }
     $msg="";
     if(isset($_GET)&& !empty($_GET)){
         if(isset($_GET['delete'])){

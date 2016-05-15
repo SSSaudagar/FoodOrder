@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once('../includes/DbConnection.php');
+    if(isset($_SESSION['type'])&&$_SESSION['type']===1){
+    }else{
+        header("Location:../index.php");
+        die();
+    }
     $msg="";
     if(isset($_GET['order'])) $orderid=$_GET['order'];
     $sql="SELECT * FROM `order_fooditems` join fooditems on order_fooditems.fooditems_id = fooditems.id WHERE order_id = {$orderid} ";

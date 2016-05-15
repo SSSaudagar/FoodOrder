@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once('../includes/DbConnection.php');
+    if(isset($_SESSION['type'])&&$_SESSION['type']===0){
+    }else{
+        header("Location:../index.php");
+        die();
+    }
     $msg="";
     $query="SELECT * from discount order by status DESC";
     $result=mysql_query($query);
